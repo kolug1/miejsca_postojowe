@@ -46,14 +46,14 @@ def main():
         lat = None
         lon = None
         if not numer_adresu:
-            lat = "BLAD - brak numeru"
-            lon = "BLAD - brak numeru"
+            lat = 0
+            lon = 0
         else:
             address = row['pelny_adres']
             lat_val, lon_val = get_coordinates(address)
             if lat_val is None or lon_val is None:
-                lat = "BLAD - brak wspolrzednych"
-                lon = "BLAD - brak wspolrzednych"
+                lat = 0
+                lon = 0
             else:
                 lat = lat_val
                 lon = lon_val
