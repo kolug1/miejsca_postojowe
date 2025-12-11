@@ -28,12 +28,10 @@ def get_coordinates(address):
 def main():
     df = pd.read_csv(INPUT_FILE, header=0)
     df['Adres'] = df['Adres'].fillna('').astype(str).str.strip()
-    df['pelny_adres'] = df.apply(create_full_address, axis=1)
     df['lat'] = None
     df['lon'] = None
 
     for idx, row in df.iterrows():
-        addr = row['pelny_adres']
         lat, lon = get_coordinates(addr)
         df.at[idx, 'lat'] = lat
         df.at[idx, 'lon'] = lon
